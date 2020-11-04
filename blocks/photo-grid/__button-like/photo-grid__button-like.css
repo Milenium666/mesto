@@ -1,0 +1,13 @@
+.photo-grid__button-like {
+    background-image: url(../../../images/photo-grid__like.svg);
+    width: 21px;
+    height: 18px;
+    border: 0;
+    background-color: #ffffff;
+    margin-right: 7px;
+
+}
+.photo-grid__button-like:hover{
+    opacity: 0.8;
+    
+}

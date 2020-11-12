@@ -1,0 +1,8 @@
+.info {
+    
+    display: flex;
+    align-items: baseline;
+
+
+    @-moz-document url-prefix()
+}

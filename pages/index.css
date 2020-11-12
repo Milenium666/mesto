@@ -10,10 +10,10 @@
 @import url(../blocks/profile/profile.css);
 @import url(../blocks/profile-info/profile-info.css);
 @import url(../blocks/profile-info/__avatar/profile-info__avatar.css);
-@import url();
-@import url();
-@import url();
-@import url();
+@import url(../blocks/info/info.css);
+@import url(../blocks/info/__name/info__name.css);
+@import url(../blocks/info/__button/info__button.css);
+@import url(../blocks/info/__occupation/info__occupation.css);
 @import url();
 @import url();
 @import url();

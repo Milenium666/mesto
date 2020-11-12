@@ -1,32 +1,16 @@
 @import url(../vendor/normalize.css);
 
-@import url(../vendor/font.css);
 
-@import url(../blocks/page/page.css);
+
+
 
 
 @import url(../blocks/logo/logo.css);
 @import url(../blocks/header/__line/header__line.css);
 
-@import url(../blocks/profile/profile.css);
-@import url(../blocks/profile-info/profile-info.css);
-@import url(../blocks/profile-info/__button/profile-info__button.css);
-@import url(../blocks/profile-info/__username/profile-info__username.css);
-@import url(../blocks/profile-info/__occupation/profile-info__occupation.css);
-@import url(../blocks/profile/__button-plus/profile__button-plus.css);
 
 
-<<<<<<< HEAD
 
-@import url(../blocks/photo-grid/photo-grid.css);
-@import url(../blocks/photo-grid/__background/photo-grid__background.css);
-@import url(../blocks/photo-grid/__image/photo-grid__image.css);
-@import url(../blocks/photo-grid/__description/photo-grid__description.css);
-@import url(../blocks/photo-grid/__city/photo-grid__city.css);
-@import url(../blocks/photo-grid/__button-like/photo-grid__button-like.css);
-=======
-@import url();
->>>>>>> origin/features-profile
 
 @import url();
 @import url();

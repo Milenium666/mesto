@@ -1,22 +1,15 @@
 @import url(../vendor/normalize.css);
 
+@import url(../font/font.css);
+
 @import url(../blocks/page/page.css);
-
-
-
-
 
 @import url(../blocks/logo/logo.css);
 @import url(../blocks/header/__line/header__line.css);
 
-
-
-
-
-
-@import url();
-@import url();
-@import url();
+@import url(../blocks/profile/profile.css);
+@import url(../blocks/profile-info/profile-info.css);
+@import url(../blocks/profile-info/__avatar/profile-info__avatar.css);
 @import url();
 @import url();
 @import url();

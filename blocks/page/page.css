@@ -4,3 +4,8 @@
     max-width: 880px;
     margin: 0 auto;
 }
+* {
+    outline-width: 1px;
+    outline-style: solid;
+    outline-color: red;
+  }

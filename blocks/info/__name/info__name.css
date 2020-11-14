@@ -5,3 +5,13 @@
     margin: 0;
     padding-right: 18px;
 }
+@media screen and (max-width: 767px) {
+    .info__name{
+        line-height: 33px;
+        font-size: 27px;
+        text-align: center;
+        padding-right: 10px;
+
+    }
+ }
+

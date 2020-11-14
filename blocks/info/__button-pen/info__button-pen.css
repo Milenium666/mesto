@@ -1,0 +1,15 @@
+.info__button-pen {
+    border: 1px solid #ffffff;
+    box-sizing: border-box;
+    width: 24px;
+    height: 24px;
+    background-color: black;
+}
+@media screen and (max-width: 767px) {
+    .info__button-pen {
+        width: 18px;
+        height: 18px;
+        
+        
+    }
+}

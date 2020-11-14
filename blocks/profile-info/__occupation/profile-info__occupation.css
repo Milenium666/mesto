@@ -1,7 +1,14 @@
 .profile-info__occupation {
-    line-height: 21,78px;
-    font-size: 18px;
     font-weight: 400;
-    margin: 0;
-    padding-top: 16px;
+    font-size: 16px;
+    line-height: 22px;
+    margin: 16px 0 0 0;
+}
+@media screen and (max-width: 767px) {
+    .profile-info__occupation {
+        font-size: 14px;
+        line-height: 17px;
+        margin: 14px 0 0 0;
+        text-align: center;
+    }
 }

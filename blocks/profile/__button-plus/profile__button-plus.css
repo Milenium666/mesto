@@ -5,6 +5,7 @@
     background-color: black;
     width: 150px;
     height: 50px;
+    outline-style: none;
 
 }
 @media screen and (max-width: 767px) {

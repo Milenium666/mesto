@@ -4,6 +4,8 @@
         border-radius: 2px;
         height: 50px;
         border: none;
+        outline-style: none;
+        margin-top: 18px;
 }
 
 .popup__button-save:hover {

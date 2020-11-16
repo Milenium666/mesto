@@ -15,3 +15,6 @@
         
     }
 }
+.profile__button-plus:hover {
+    opacity: 0.6;
+}

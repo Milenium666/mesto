@@ -1,10 +1,8 @@
 .popup__data {
     width: 100%;
-
     border: 0;
     border-bottom: 1px solid rgba(0,0,0,0.2);
-    outline: 0; 
-
+    outline: 0;
     text-align: start;
     padding-bottom: 13px;
     box-sizing: border-box;

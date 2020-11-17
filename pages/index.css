@@ -38,10 +38,10 @@
 @import url(../blocks/popup/__save/popup__save.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
 @import url(../blocks/popup/__data-container/popup__data-container.css);
+@import url(../blocks/line/line.css);
 @import url(../blocks/popup/__data/popup__data.css);
-@import url(../blocks/__data/_type_name/popup__data_type_name.css);
-@import url(../blocks/popup/__data/_type_job/popup__data_type_job.css);
 
 
 
-@import url();
+
+

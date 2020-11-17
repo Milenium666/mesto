@@ -1,18 +1,15 @@
 .popup__data {
     width: 100%;
     border: none;
-    /* opacity: 0.2; */
-    border-bottom: 1px solid #000000;
+    
     text-align: start;
     padding-bottom: 13px;
     box-sizing: border-box;
-    margin-bottom: 30px;
+    
     
     
 }
-.popup__data:last-child {
-    margin-bottom: 0;
-}
+
 .popup__data:focus {
     color: #000000;
     opacity: 1;

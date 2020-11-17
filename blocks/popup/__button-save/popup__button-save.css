@@ -6,6 +6,12 @@
         border: none;
         outline-style: none;
         margin-top: 18px;
+
+        font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #ffffff;
 }
 
 .popup__button-save:hover {
@@ -15,6 +21,8 @@
 @media screen and (max-width: 767px) {
     .popup__button-save {
         height: 46px;
+        font-size: 14px;
+        line-height: 17px;
     }
 }
 

@@ -1,11 +1,25 @@
 .popup__data {
     width: 100%;
-    border: none;
-    
+
+    border: 0;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    outline: 0; 
+
     text-align: start;
     padding-bottom: 13px;
     box-sizing: border-box;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-bottom: 30px;
     
+    
+    
+}
+
+.popup__data::before {
+    opacity: 0.2;
+    border-bottom: 1px solid #000000;
     
     
 }
@@ -14,6 +28,7 @@
     color: #000000;
     opacity: 1;
 }
+
 
 
 

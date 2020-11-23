@@ -25,6 +25,7 @@
 @import url('../blocks/photo-grid/photo-grid.css');
 @import url('../blocks/photo-grid/__card/photo-grid__card.css');
 @import url('../blocks/photo-grid/__image/photo-grid__image.css');
+@import url('../blocks/photo-grid/__detete/photo-grid__detete.css');
 @import url('../blocks/photo-grid/__discription/photo-grid__discription.css');
 @import url('../blocks/photo-grid/__place/photo-grid__place.css');
 @import url('../blocks/photo-grid/__like/photo-grid__like.css');

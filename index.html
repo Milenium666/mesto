@@ -38,61 +38,6 @@
             </section>
             <section class="elements indent">
                 <ul class="photo-grid">
-
-                    <li class="photo-grid__card">
-                        <img src="./images/arxangelsk.png" alt="Сосновый Лес" class="photo-grid__image">
-                        <button class="photo-grid__detete" type="button"></button>
-                        <div class="photo-grid__discription">
-                            <p class="photo-grid__place">Арханельск</p>
-                            
-                            <button type="button" class="photo-grid__like"></button>
-                        </div>
-                    </li>
-
-                    <li class="photo-grid__card">
-                        <img src="./images/photo-grid__saratov.png" alt="Степь" class="photo-grid__image">
-                        <button class="photo-grid__detete" type="button"></button>
-                        <div class="photo-grid__discription">
-                            <p class="photo-grid__place">Саратов</p>
-                            <button type="button" class="photo-grid__like"></button>
-                        </div>
-                    </li>
-
-                    <li class="photo-grid__card">
-                        <img src="./images/novorosiisk.png" alt="Море" class="photo-grid__image">
-                        <button class="photo-grid__detete" type="button"></button>
-                        <div class="photo-grid__discription">
-                            <p class="photo-grid__place">Новороссийск</p>
-                            <button type="button" class="photo-grid__like"></button>
-                        </div>
-                    </li>
-
-                    <li class="photo-grid__card">
-                        <img src="./images/volgograd.png" alt="Лощади в степи" class="photo-grid__image">
-                        <button class="photo-grid__detete" type="button"></button>
-                        <div class="photo-grid__discription">
-                            <p class="photo-grid__place">Волгоград</p>
-                            <button type="button" class="photo-grid__like"></button>
-                        </div>
-                    </li>
-
-                    <li class="photo-grid__card">
-                        <img src="./images/bryansk.png" alt="Озеро в хвойном лесу" class="photo-grid__image">
-                        <button class="photo-grid__detete" type="button"></button>
-                        <div class="photo-grid__discription">
-                            <p class="photo-grid__place">Брянск</p>
-                            <button type="button" class="photo-grid__like"></button>
-                        </div>
-                    </li>
-
-                    <li class="photo-grid__card">
-                        <img src="./images/yaroslvl.png" alt="озеро с церквью" class="photo-grid__image">
-                        <button class="photo-grid__detete" type="button"></button>
-                        <div class="photo-grid__discription">
-                            <p class="photo-grid__place">Ярославль</p>
-                            <button type="button" class="photo-grid__like"></button>
-                        </div>
-                    </li>
                 </ul>
             </section>
 
@@ -111,8 +56,34 @@
                     <button type="submit" class="popup__button-save">Сохранить</button>
                 </form>
             </div>
-            
         </div>
+
+        <div class="popup indent" id='add-place'>
+            <div class="popup__content">
+                <button class="popup__close" type="button" id="close-add_place"></button>
+                <h2 class="popup__edit">Новое место</h2>
+                <form  class="popup__data-container" name="preservation_place">
+                    <input type="text" class="popup__data popup__data_type_name-place" name="name-place">
+                    <input type="text" class="popup__data popup__data_type_pic-link" name="pic-link">
+                    <button type="submit" class="popup__button-save">Создать</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="popup" id="show-image">
+
+        </div>
+        <template class="template__initial-cards">
+            <li class="photo-grid__card">
+                <img src="" alt="Сосновый Лес" class="photo-grid__image">
+                <button class="photo-grid__detete" type="button"></button>
+                <div class="photo-grid__discription">
+                    <p class="photo-grid__place"></p>
+                    
+                    <button type="button" class="photo-grid__like"></button>
+                </div>
+            </li>
+        </template>
         <script src="scripts/index.js"></script>
     </body>
 </html>  

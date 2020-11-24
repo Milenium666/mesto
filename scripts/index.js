@@ -119,12 +119,18 @@ const cards = document.querySelector('.photo-grid');
 function addCard (cardInfo) {
     const card = document.querySelector('.template__initial-cards').content.cloneNode(true);
 
-    card.querySelector('.photo-grid__image').src = cardInfo.link
-   
-    card.querySelector('.photo-grid__place').textContent = cardInfo.namePlace
+    card.querySelector('.photo-grid__image').src = cardInfo.link;
+    card.querySelector('.photo-grid__place').textContent = cardInfo.namePlace;
     
+    card.querySelector('.photo-grid__detete').addEventListener('click', event => {
+        const deleteCard = event.target.closest('.photo-grid__card');
 
-    cards.prepend(card)
+        if(deleteCard) {
+            deleteCard.remove();
+        }
+    })
+
+    cards.prepend(card);
 }
 
 initialCards.forEach(addCard);

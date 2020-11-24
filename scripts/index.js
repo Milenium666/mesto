@@ -15,7 +15,9 @@ const cardList = document.querySelector(".photo-grid")
 
 const name = document.querySelector('.info__user-name');
 const job = document.querySelector('.profile-info__occupation');
-let form = document.querySelector('.popup__data-container');
+const form = document.querySelector('.popup__data-container');
+// Форма добавления Места
+const  formAddPlace = document.querySelector('#preservation_place');
 
 let nameInput = document.querySelector('.popup__data_type_name');
 let jobInput = document.querySelector('.popup__data_type_job');
@@ -58,9 +60,28 @@ popupCloseButton.addEventListener('click', closePopup);
 closeButtonAddPlace.addEventListener('click', closePopupAddPlace);
 // Слушатель для кнопки 'Добавления карточки'
 addPlaceButton.addEventListener('click', showPopupAddPlace);
-//
+// Слушатель формы данных пользователя
 form.addEventListener('submit', submitFormData);
+// Слушатель формы добавления карточки
+formAddPlace.addEventListener('submit', submitFormAddPlace)
 
+
+function submitFormAddPlace (event) {
+    event.preventDefault();
+
+    const dataPlace = {};
+
+    dataPlace.namePlace  = formAddPlace.querySelector('.popup__data_type_name-place').value;
+    dataPlace.link = formAddPlace.querySelector('.popup__data_type_pic-link').value;
+
+    addCard(dataPlace);
+
+    formAddPlace.reset();
+
+    closePopupAddPlace();
+    
+    
+}
 
 
 
@@ -95,7 +116,7 @@ const initialCards = [
 
 const cards = document.querySelector('.photo-grid');
 
-function addCards (cardInfo) {
+function addCard (cardInfo) {
     const card = document.querySelector('.template__initial-cards').content.cloneNode(true);
 
     card.querySelector('.photo-grid__image').src = cardInfo.link
@@ -103,10 +124,10 @@ function addCards (cardInfo) {
     card.querySelector('.photo-grid__place').textContent = cardInfo.namePlace
     
 
-    cards.append(card)
+    cards.prepend(card)
 }
 
-initialCards.forEach(addCards)
+initialCards.forEach(addCard);
 
 
 

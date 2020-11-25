@@ -130,10 +130,18 @@ function addCard (cardInfo) {
         }
     })
 
+    card.querySelector('.photo-grid__like').addEventListener('click', event => {
+        event.target.classList.toggle('photo-grid__like_active');
+        console.log(event.target);
+
+    });
+    
+
     cards.prepend(card);
 }
 
 initialCards.forEach(addCard);
+
 
 
 

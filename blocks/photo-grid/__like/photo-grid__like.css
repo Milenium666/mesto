@@ -11,12 +11,3 @@
 .photo-grid__like:hover {
     opacity: 0.6;
 }
-.photo-grid__like:active {
-    width: 21px;
-    height: 19px;
-    background: transparent url('../../../images/like__active.svg') center no-repeat;
-    background-size: 21px 19px;
-    border: none;
-    cursor: pointer;
-    outline-style: none;
-}

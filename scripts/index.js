@@ -124,6 +124,23 @@ const initialCards = [
 ];
 
 const cards = document.querySelector('.photo-grid');
+const popupShowImage = document.querySelector('#show-image');
+const popupImage = document.querySelector('.popup__image');
+const popupImageTitle = document.querySelector('popup__description-place');
+const templateCardTitle = document.querySelector('.photo-grid__discription');
+const templateImageCard = document.querySelector('.photo-grid__image');
+const closeBtnShowImage = document.querySelector('#close-show_image');
+
+closeBtnShowImage.addEventListener('click', closePopup);
+
+function showPopupImage(event) {
+    showPopup(popupShowImage);
+    const openCard = event.target.closest('.photo-grid__card');
+console.log(openCard);
+    popupImage.src = openCard.src;
+    popupImageTitle.innerHTML = templateCardTitle.textContent;
+}
+
 
 function addCard (cardInfo) {
     const card = document.querySelector('.template__initial-cards').content.cloneNode(true);
@@ -141,15 +158,21 @@ function addCard (cardInfo) {
 
     card.querySelector('.photo-grid__like').addEventListener('click', event => {
         event.target.classList.toggle('photo-grid__like_active');
-        console.log(event.target);
+        
 
     });
+
+    const templateCardImage = card.querySelector('.photo-grid__image');
+    templateCardImage.addEventListener('click', showPopupImage);
     
 
     cards.prepend(card);
 }
 
 initialCards.forEach(addCard);
+
+
+
 
 
 

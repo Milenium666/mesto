@@ -6,7 +6,8 @@ const popup = document.querySelector('.popup');
 const popupCloseButton = document.querySelector('.popup__close');
 const closeButtonAddPlace = document.querySelector('#close-add_place');
 const editButton = document.querySelector('.info__button-pen');
-const addPlaceButton = document.querySelector('.profile__button-plus')
+const addPlaceButton = document.querySelector('.profile__button-plus');
+
 const popupAddPlace = document.querySelector("#add-place");
 
 //добавление карточки
@@ -16,25 +17,25 @@ const cardList = document.querySelector(".photo-grid")
 const name = document.querySelector('.info__user-name');
 const job = document.querySelector('.profile-info__occupation');
 const form = document.querySelector('.popup__data-container');
-// Форма добавления Места
+
 const  formAddPlace = document.querySelector('#preservation_place');
 
 let nameInput = document.querySelector('.popup__data_type_name');
 let jobInput = document.querySelector('.popup__data_type_job');
-// закрытие Popup'a
+
+const profilePopup = document.querySelector('#profile-popup');
+
 
 // Открытие popup'a с данными пользователя
-function showPopupData () {
+function showPopup (popup) {
     popup.classList.add('popup_opened');
-
-    nameInput.value = name.textContent;
-    jobInput.value = job.textContent;
-
 }
 // закрытие Popup'a
-function closePopup () {
+function closePopup (event) {
+    const popup = event.target.closest('.popup');
     popup.classList.remove('popup_opened');
 }
+
 // Отправка формы с данными потзователя
 function submitFormData (event) {
     event.preventDefault();
@@ -44,22 +45,30 @@ function submitFormData (event) {
     
     closePopup();
 }
-// Открытие popup'a Добавления нового места
-function showPopupAddPlace () {
-    popupAddPlace.classList.add('popup_opened');
-}
-function closePopupAddPlace () {
-    popupAddPlace.classList.remove('popup_opened');
-}
+// // Открытие popup'a Добавления нового места
+// function showPopupAddPlace () {
+//     popupAddPlace.classList.add('popup_opened');
+// }
+
 
 // Слушатель для кнопки 'редактировать профиль'
-editButton.addEventListener('click', showPopupData);
+editButton.addEventListener('click', function() {
+    showPopup(profilePopup);
+    nameInput.value = name.textContent;
+    jobInput.value = job.textContent;
+
+}
+
+
+);
 // Слушатель для кнопки 'Закрытие popup'a редактирования профиля'
 popupCloseButton.addEventListener('click', closePopup);
 // Слушатель для кнопки 'Закрытие popup'a Добавления места'
-closeButtonAddPlace.addEventListener('click', closePopupAddPlace);
+closeButtonAddPlace.addEventListener('click', closePopup);
 // Слушатель для кнопки 'Добавления карточки'
-addPlaceButton.addEventListener('click', showPopupAddPlace);
+addPlaceButton.addEventListener('click', function () {
+    showPopup(popupAddPlace);
+});
 // Слушатель формы данных пользователя
 form.addEventListener('submit', submitFormData);
 // Слушатель формы добавления карточки

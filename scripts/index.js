@@ -126,9 +126,9 @@ const initialCards = [
 const cards = document.querySelector('.photo-grid');
 const popupShowImage = document.querySelector('#show-image');
 const popupImage = document.querySelector('.popup__image');
-const popupImageTitle = document.querySelector('popup__description-place');
-const templateCardTitle = document.querySelector('.photo-grid__discription');
-const templateImageCard = document.querySelector('.photo-grid__image');
+const popupImageTitle = document.querySelector('.popup__description-place');
+
+
 const closeBtnShowImage = document.querySelector('#close-show_image');
 
 closeBtnShowImage.addEventListener('click', closePopup);
@@ -136,9 +136,13 @@ closeBtnShowImage.addEventListener('click', closePopup);
 function showPopupImage(event) {
     showPopup(popupShowImage);
     const openCard = event.target.closest('.photo-grid__card');
-console.log(openCard);
-    popupImage.src = openCard.src;
-    popupImageTitle.innerHTML = templateCardTitle.textContent;
+
+    const cardImage = openCard.querySelector('.photo-grid__image');
+    const cardTitle = openCard.querySelector('.photo-grid__discription');
+
+    popupImage.src = cardImage.src;
+    popupImageTitle.textContent = cardTitle.textContent;
+
 }
 
 

@@ -87,7 +87,7 @@ function submitFormAddPlace (event) {
 
     formAddPlace.reset();
 
-    closePopupAddPlace();
+    closePopup(event);
     
     
 }

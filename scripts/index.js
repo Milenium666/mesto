@@ -1,7 +1,3 @@
-
-
-
-
 const popup = document.querySelector('.popup');
 const popupCloseButton = document.querySelector('.popup__close');
 const closeButtonAddPlace = document.querySelector('#close-add_place');
@@ -10,8 +6,8 @@ const addPlaceButton = document.querySelector('.profile__button-plus');
 
 const popupAddPlace = document.querySelector("#add-place");
 
-//добавление карточки
-const cardList = document.querySelector(".photo-grid")
+
+
 
 
 const name = document.querySelector('.info__user-name');
@@ -43,9 +39,9 @@ function submitFormData (event) {
     name.textContent = nameInput.value;
     job.textContent = jobInput.value;
     
-    closePopup();
+    closePopup(event);
 }
-// // Открытие popup'a Добавления нового места
+
 
 
 

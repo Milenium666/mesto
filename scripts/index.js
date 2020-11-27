@@ -46,9 +46,7 @@ function submitFormData (event) {
     closePopup();
 }
 // // Открытие popup'a Добавления нового места
-// function showPopupAddPlace () {
-//     popupAddPlace.classList.add('popup_opened');
-// }
+
 
 
 // Слушатель для кнопки 'редактировать профиль'

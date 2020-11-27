@@ -38,7 +38,7 @@ function submitFormData (event) {
 
     name.textContent = nameInput.value;
     job.textContent = jobInput.value;
-    
+
     closePopup(event);
 }
 
@@ -82,8 +82,7 @@ function submitFormAddPlace (event) {
     formAddPlace.reset();
 
     closePopup(event);
-    
-    
+
 }
 
 

@@ -10,16 +10,11 @@
     white-space: nowrap;
     overflow: hidden;
     margin-bottom: 30px;
-    
-    
-    
 }
 
 .popup__data::before {
     opacity: 0.2;
     border-bottom: 1px solid #000000;
-    
-    
 }
 
 .popup__data:focus {
@@ -27,19 +22,19 @@
     opacity: 1;
 }
 :focus::-webkit-input-placeholder {
-    color: transparent
+    color: transparent;
   }
   
   :focus::-moz-placeholder {
-    color: transparent
+    color: transparent;
   }
   
   :focus:-moz-placeholder {
-    color: transparent
+    color: transparent;
   }
   
   :focus:-ms-input-placeholder {
-    color: transparent
+    color: transparent;
   }
 
 

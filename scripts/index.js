@@ -3,21 +3,15 @@ const popupCloseButton = document.querySelector('.popup__close');
 const closeButtonAddPlace = document.querySelector('#close-add_place');
 const editButton = document.querySelector('.info__button-pen');
 const addPlaceButton = document.querySelector('.profile__button-plus');
-
 const popupAddPlace = document.querySelector("#add-place");
-
-
-
-
-
 const name = document.querySelector('.info__user-name');
 const job = document.querySelector('.profile-info__occupation');
 const form = document.querySelector('.popup__data-container');
 
 const  formAddPlace = document.querySelector('#preservation_place');
 
-let nameInput = document.querySelector('.popup__data_type_name');
-let jobInput = document.querySelector('.popup__data_type_job');
+const nameInput = document.querySelector('.popup__data_type_name');
+const jobInput = document.querySelector('.popup__data_type_job');
 
 const profilePopup = document.querySelector('#profile-popup');
 
@@ -74,10 +68,10 @@ function submitFormAddPlace (event) {
 
     const dataPlace = {};
 
-    dataPlace.namePlace  = formAddPlace.querySelector('.popup__data_type_name-place').value;
+    dataPlace.name  = formAddPlace.querySelector('.popup__data_type_name-place').value;
     dataPlace.link = formAddPlace.querySelector('.popup__data_type_pic-link').value;
 
-    addCard(dataPlace);
+    addCard(container, createCard(dataPlace.name, dataPlace.link));
 
     formAddPlace.reset();
 
@@ -91,32 +85,32 @@ function submitFormAddPlace (event) {
 //Добавление на страницу карточек
 const initialCards = [
     {
-        namePlace: 'Архыз',
+        name: 'Архыз',
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
     },
     {
-        namePlace: 'Челябинская область',
+        name: 'Челябинская область',
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
     },
     {
-        namePlace: 'Иваново',
+        name: 'Иваново',
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
     },
     {
-        namePlace: 'Камчатка',
+        name: 'Камчатка',
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
     },
     {
-        namePlace: 'Холмогорский район',
+        name: 'Холмогорский район',
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
     },
     {
-        namePlace: 'Байкал',
+        name: 'Байкал',
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
 ];
 
-const cards = document.querySelector('.photo-grid');
+const container = document.querySelector('.photo-grid');
 const popupShowImage = document.querySelector('#show-image');
 const popupImage = document.querySelector('.popup__image');
 const popupImageTitle = document.querySelector('.popup__description-place');
@@ -137,36 +131,36 @@ function showPopupImage(event) {
     popupImageTitle.textContent = cardTitle.textContent;
 
 }
+//Функция создания карточки
+function createCard(name, link) {
+    const element = document.querySelector('.template__initial-cards').content.cloneNode(true);
 
+    element.querySelector('.photo-grid__image').src = link;
+    element.querySelector('.photo-grid__place').textContent = name;
 
-function addCard (cardInfo) {
-    const card = document.querySelector('.template__initial-cards').content.cloneNode(true);
-
-    card.querySelector('.photo-grid__image').src = cardInfo.link;
-    card.querySelector('.photo-grid__place').textContent = cardInfo.namePlace;
-    
-    card.querySelector('.photo-grid__detete').addEventListener('click', event => {
-        const deleteCard = event.target.closest('.photo-grid__card');
-
-        if(deleteCard) {
-            deleteCard.remove();
-        }
-    })
-
-    card.querySelector('.photo-grid__like').addEventListener('click', event => {
-        event.target.classList.toggle('photo-grid__like_active');
-        
-
+    element.querySelector('.photo-grid__detete').addEventListener('click', event => {
+        event.target.closest('.photo-grid__card').remove();
     });
 
-    const templateCardImage = card.querySelector('.photo-grid__image');
-    templateCardImage.addEventListener('click', showPopupImage);
-    
+    element.querySelector('.photo-grid__like').addEventListener('click', event => {
+        event.target.classList.toggle('photo-grid__like_active');
+    });
 
-    cards.prepend(card);
+        const templateCardImage = element.querySelector('.photo-grid__image');
+    templateCardImage.addEventListener('click', showPopupImage);
+
+     ///возвращается созданная карточка
+    return element;
 }
 
-initialCards.forEach(addCard);
+const cardElement = document.querySelector('.template__initial-cards');
+
+function addCard (cardContainer, cardElement) {
+    cardContainer.prepend(cardElement);
+
+}
+
+initialCards.forEach(cardElement => addCard(container, createCard(cardElement.name, cardElement.link)));
 
 
 

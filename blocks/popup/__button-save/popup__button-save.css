@@ -5,8 +5,8 @@
         height: 50px;
         border: none;
         outline-style: none;
-        margin-top: 18px;
-
+        margin-top: 32px;
+        cursor: pointer;
         font-weight: 400;
     font-size: 18px;
     line-height: 22px;

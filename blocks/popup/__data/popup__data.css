@@ -37,6 +37,10 @@
     color: transparent;
   }
 
+  .popup__data:invalid:not(:focus):not(:placeholder-shown) {
+    border-bottom: 1px solid #FF0000;
+  }
+
 
 
 

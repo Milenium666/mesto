@@ -61,13 +61,7 @@ function enableValidation (config) {
 
 }
 
-// function disableValidation (form, config) {
-//     form.reset();
-//     const inputList = form.querySelectorAll(config.inputSelector);
-//     inputList.forEach((input) => {
-//         hideError(form, input, config)
-//     });
-// }
+
 const validationConfig = {
     formSelector: '.popup__data-container',
     inputSelector: '.popup__data',

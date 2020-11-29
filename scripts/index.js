@@ -81,7 +81,6 @@ closeButtonAddPlace.addEventListener('click', closePopup);
 // Слушатель для кнопки 'Добавления карточки'
 addPlaceButton.addEventListener('click', function () {
     formAddPlace.reset();
-    
     showPopup(popupAddPlace);
 });
 // Слушатель формы данных пользователя

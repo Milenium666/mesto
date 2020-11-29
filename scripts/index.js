@@ -7,7 +7,7 @@ const popupAddPlace = document.querySelector("#add-place");
 const name = document.querySelector('.info__user-name');
 const job = document.querySelector('.profile-info__occupation');
 const form = document.querySelector('.popup__data-container');
-
+const overlayShowImage = document.querySelector('#show-image');
 const  formAddPlace = document.querySelector('#preservation_place');
 
 const nameInput = document.querySelector('.popup__data_type_name');
@@ -24,7 +24,9 @@ function showPopup (popup) {
 function closePopup (event) {
     const popup = event.target.closest('.popup');
     popup.classList.remove('popup_opened');
+    
 }
+
 
 // Отправка формы с данными потзователя
 function submitFormData (event) {
@@ -36,25 +38,30 @@ function submitFormData (event) {
     closePopup(event);
 }
 
-
-
-
 // Слушатель для кнопки 'редактировать профиль'
 editButton.addEventListener('click', function() {
     showPopup(profilePopup);
+
     nameInput.value = name.textContent;
     jobInput.value = job.textContent;
 
-}
+})
+function popupClickHandler(event) {
+    if (event.target.classList.contains('popup_opened')) {
+        closePopup(event);
+    }
+};
 
-
-);
+popup.addEventListener('click', popupClickHandler);
+popupAddPlace.addEventListener('click', popupClickHandler);
+overlayShowImage.addEventListener('click', popupClickHandler);
 // Слушатель для кнопки 'Закрытие popup'a редактирования профиля'
 popupCloseButton.addEventListener('click', closePopup);
 // Слушатель для кнопки 'Закрытие popup'a Добавления места'
 closeButtonAddPlace.addEventListener('click', closePopup);
 // Слушатель для кнопки 'Добавления карточки'
 addPlaceButton.addEventListener('click', function () {
+    formAddPlace.reset();
     showPopup(popupAddPlace);
 });
 // Слушатель формы данных пользователя
@@ -161,6 +168,9 @@ function addCard (cardContainer, cardElement) {
 }
 
 initialCards.forEach(cardElement => addCard(container, createCard(cardElement.name, cardElement.link)));
+
+nameInput.value = name.textContent;
+jobInput.value = job.textContent;
 
 
 

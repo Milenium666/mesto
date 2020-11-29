@@ -5,7 +5,7 @@ function showError (form, input, config) {
         input.classList.add(config.inputInvalidClass);
 }
 
-//функция раскрывает ошибку
+//функция скрывает ошибку
 function hideError (form, input, config) {
     const error = form.querySelector(`#${input.id}-error`);
         error.textContent = '';
@@ -61,6 +61,13 @@ function enableValidation (config) {
 
 }
 
+// function disableValidation (form, config) {
+//     form.reset();
+//     const inputList = form.querySelectorAll(config.inputSelector);
+//     inputList.forEach((input) => {
+//         hideError(form, input, config)
+//     });
+// }
 const validationConfig = {
     formSelector: '.popup__data-container',
     inputSelector: '.popup__data',
@@ -69,5 +76,8 @@ const validationConfig = {
     inputInvalidClass: 'popup__data_invalid',
 }
 
+
 enableValidation(validationConfig);
+
+
 

@@ -18,15 +18,30 @@ const profilePopup = document.querySelector('#profile-popup');
 
 // Открытие popup'a с данными пользователя
 function showPopup (popup) {
+
     popup.classList.add('popup_opened');
-}
-// закрытие Popup'a
-function closePopup (event) {
-    const popup = event.target.closest('.popup');
-    popup.classList.remove('popup_opened');
-    
+    document.addEventListener('keydown', closePopupEcs);
+
+
 }
 
+
+// закрытие Popup'a
+function closePopup (event) {
+    const popup = document.querySelector('.popup_opened');
+    console.log(popup.classList);
+    popup.classList.remove('popup_opened');
+    document.removeEventListener('keydown', closePopupEcs);
+
+
+
+}
+function closePopupEcs (event) {
+    if (event.key.toLowerCase() === 'escape') {
+        const popup = document.querySelector('.popup');
+        closePopup(event);
+    }
+}
 
 // Отправка формы с данными потзователя
 function submitFormData (event) {
@@ -38,9 +53,12 @@ function submitFormData (event) {
     closePopup(event);
 }
 
+
+
 // Слушатель для кнопки 'редактировать профиль'
 editButton.addEventListener('click', function() {
     showPopup(profilePopup);
+
 
     nameInput.value = name.textContent;
     jobInput.value = job.textContent;
@@ -52,6 +70,7 @@ function popupClickHandler(event) {
     }
 };
 
+
 popup.addEventListener('click', popupClickHandler);
 popupAddPlace.addEventListener('click', popupClickHandler);
 overlayShowImage.addEventListener('click', popupClickHandler);
@@ -62,6 +81,7 @@ closeButtonAddPlace.addEventListener('click', closePopup);
 // Слушатель для кнопки 'Добавления карточки'
 addPlaceButton.addEventListener('click', function () {
     formAddPlace.reset();
+    
     showPopup(popupAddPlace);
 });
 // Слушатель формы данных пользователя

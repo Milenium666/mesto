@@ -37,8 +37,7 @@ function closePopup (event) {
 
 }
 function closePopupEcs (event) {
-    if (event.key.toLowerCase() === 'escape') {
-        const popup = document.querySelector('.popup');
+    if (event.key === 'Escape') {
         closePopup(event);
     }
 }
@@ -58,12 +57,16 @@ function submitFormData (event) {
 // Слушатель для кнопки 'редактировать профиль'
 editButton.addEventListener('click', function() {
     showPopup(profilePopup);
-
-
     nameInput.value = name.textContent;
     jobInput.value = job.textContent;
+    setButtonState(button, isActive, validationConfig);
 
-})
+
+
+});
+// Слушатель для кнопки 'Закрытие popup'a редактирования профиля'
+popupCloseButton.addEventListener('click', closePopup);
+
 function popupClickHandler(event) {
     if (event.target.classList.contains('popup_opened')) {
         closePopup(event);
@@ -74,19 +77,50 @@ function popupClickHandler(event) {
 popup.addEventListener('click', popupClickHandler);
 popupAddPlace.addEventListener('click', popupClickHandler);
 overlayShowImage.addEventListener('click', popupClickHandler);
-// Слушатель для кнопки 'Закрытие popup'a редактирования профиля'
-popupCloseButton.addEventListener('click', closePopup);
-// Слушатель для кнопки 'Закрытие popup'a Добавления места'
-closeButtonAddPlace.addEventListener('click', closePopup);
+
+
+
 // Слушатель для кнопки 'Добавления карточки'
 addPlaceButton.addEventListener('click', function () {
     formAddPlace.reset();
     showPopup(popupAddPlace);
 });
+// Слушатель для кнопки 'Закрытие popup'a Добавления места'
+closeButtonAddPlace.addEventListener('click', closePopup);
 // Слушатель формы данных пользователя
 form.addEventListener('submit', submitFormData);
 // Слушатель формы добавления карточки
-formAddPlace.addEventListener('submit', submitFormAddPlace)
+formAddPlace.addEventListener('submit', submitFormAddPlace);
+
+const cardElement = document.querySelector('.template__initial-cards');
+//Функция создания карточки
+function createCard(name, link) {
+    const element = cardElement.content.cloneNode(true);
+
+    element.querySelector('.photo-grid__image').src = link;
+    element.querySelector('.photo-grid__place').textContent = name;
+
+    element.querySelector('.photo-grid__detete').addEventListener('click', event => {
+        event.target.closest('.photo-grid__card').remove();
+    });
+
+    element.querySelector('.photo-grid__like').addEventListener('click', event => {
+        event.target.classList.toggle('photo-grid__like_active');
+    });
+
+        const templateCardImage = element.querySelector('.photo-grid__image');
+    templateCardImage.addEventListener('click', showPopupImage);
+
+     ///возвращается созданная карточка
+    return element;
+}
+
+
+
+function addCard (cardContainer, cardElement) {
+    cardContainer.prepend(cardElement);
+
+}
 
 
 function submitFormAddPlace (event) {
@@ -144,7 +178,7 @@ const popupImageTitle = document.querySelector('.popup__description-place');
 
 const closeBtnShowImage = document.querySelector('#close-show_image');
 
-closeBtnShowImage.addEventListener('click', closePopup);
+
 
 function showPopupImage(event) {
     showPopup(popupShowImage);
@@ -157,39 +191,9 @@ function showPopupImage(event) {
     popupImageTitle.textContent = cardTitle.textContent;
 
 }
-//Функция создания карточки
-function createCard(name, link) {
-    const element = document.querySelector('.template__initial-cards').content.cloneNode(true);
-
-    element.querySelector('.photo-grid__image').src = link;
-    element.querySelector('.photo-grid__place').textContent = name;
-
-    element.querySelector('.photo-grid__detete').addEventListener('click', event => {
-        event.target.closest('.photo-grid__card').remove();
-    });
-
-    element.querySelector('.photo-grid__like').addEventListener('click', event => {
-        event.target.classList.toggle('photo-grid__like_active');
-    });
-
-        const templateCardImage = element.querySelector('.photo-grid__image');
-    templateCardImage.addEventListener('click', showPopupImage);
-
-     ///возвращается созданная карточка
-    return element;
-}
-
-const cardElement = document.querySelector('.template__initial-cards');
-
-function addCard (cardContainer, cardElement) {
-    cardContainer.prepend(cardElement);
-
-}
+closeBtnShowImage.addEventListener('click', closePopup);
 
 initialCards.forEach(cardElement => addCard(container, createCard(cardElement.name, cardElement.link)));
-
-nameInput.value = name.textContent;
-jobInput.value = job.textContent;
 
 
 

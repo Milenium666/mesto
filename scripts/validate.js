@@ -22,10 +22,13 @@ function checkInputValidity (form, input, config) {
 }
 
 function setButtonState (button, isActive, config) {
+    // debugger;
     if (isActive) {
+        // debugger;
         button.classList.remove(config.buttonInvalidClass);
         button.disabled = false;
     } else {
+        // debugger;
         button.classList.add(config.buttonInvalidClass);
         button.disabled = true;
     }

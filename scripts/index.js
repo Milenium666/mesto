@@ -9,7 +9,7 @@ const job = document.querySelector('.profile-info__occupation');
 const form = document.querySelector('.popup__data-container');
 const overlayShowImage = document.querySelector('#show-image');
 const  formAddPlace = document.querySelector('#preservation_place');
-
+const input = form.querySelector('.popup__data');
 const nameInput = document.querySelector('.popup__data_type_name');
 const jobInput = document.querySelector('.popup__data_type_job');
 
@@ -56,12 +56,12 @@ function submitFormData (event) {
 
 // Слушатель для кнопки 'редактировать профиль'
 editButton.addEventListener('click', function() {
-    showPopup(profilePopup);
+
     nameInput.value = name.textContent;
     jobInput.value = job.textContent;
-    setButtonState(button, isActive, validationConfig);
-
-
+    const button = form.querySelector('.popup__button-save');
+    setButtonState(button, form.checkValidity(), validationConfig);
+    showPopup(profilePopup);
 
 });
 // Слушатель для кнопки 'Закрытие popup'a редактирования профиля'
@@ -84,9 +84,10 @@ overlayShowImage.addEventListener('click', popupClickHandler);
 addPlaceButton.addEventListener('click', function () {
     formAddPlace.reset();
     showPopup(popupAddPlace);
+    closeButtonAddPlace.addEventListener('click', closePopup);
 });
 // Слушатель для кнопки 'Закрытие popup'a Добавления места'
-closeButtonAddPlace.addEventListener('click', closePopup);
+
 // Слушатель формы данных пользователя
 form.addEventListener('submit', submitFormData);
 // Слушатель формы добавления карточки
@@ -189,9 +190,10 @@ function showPopupImage(event) {
 
     popupImage.src = cardImage.src;
     popupImageTitle.textContent = cardTitle.textContent;
+    closeBtnShowImage.addEventListener('click', closePopup);
 
 }
-closeBtnShowImage.addEventListener('click', closePopup);
+
 
 initialCards.forEach(cardElement => addCard(container, createCard(cardElement.name, cardElement.link)));
 

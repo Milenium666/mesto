@@ -1,3 +1,6 @@
+// import Card from './Card.js';
+
+
 const popup = document.querySelector('.popup');
 const popupCloseButton = document.querySelector('.popup__close');
 const closeButtonAddPlace = document.querySelector('#close-add_place');
@@ -98,26 +101,20 @@ form.addEventListener('submit', submitFormData);
 // Слушатель формы добавления карточки
 formAddPlace.addEventListener('submit', submitFormAddPlace);
 
-const template = document.querySelector('.template__initial-cards');
+
 //Функция создания карточки
-function createCard() {
+function createCard(item, placeholder) {
+
     const card = new Card(item, '.template__initial-cards');
     const cardElement = card.createCard();
 
-
-
-    //     const templateCardImage = element;
-    // templateCardImage.addEventListener('click', showPopupImage);
-
+    placeholder.prepend(cardElement);
 
 }
 
 
 
-// function addCard (cardContainer, cardElement) {
-//     cardContainer.prepend(cardElement);
 
-// }
 
 
 function submitFormAddPlace (event) {
@@ -128,7 +125,7 @@ function submitFormAddPlace (event) {
     dataPlace.name  = formAddPlace.querySelector('.popup__data_type_name-place').value;
     dataPlace.link = formAddPlace.querySelector('.popup__data_type_pic-link').value;
 
-    // addCard(container, createCard(dataPlace.name, dataPlace.link));
+    createCard(dataPlace, container);
 
 
     formAddPlace.reset();
@@ -180,6 +177,7 @@ const closeBtnShowImage = document.querySelector('#close-show_image');
 
 
 
+    // export default 
     function showPopupImage(event) {
     showPopup(popupShowImage);
     const openCard = event.target.closest('.photo-grid__card');
@@ -194,18 +192,8 @@ const closeBtnShowImage = document.querySelector('#close-show_image');
 }
 
 
-// initialCards.forEach(cardElement => {
-    // addCard(container, createCard(cardElement.name, cardElement.link))
-// });
-
-
-
 initialCards.forEach((item) => {
-    const card = new Card(item, '.template__initial-cards');
-    const cardElement = card.createCard();
-
-    container.prepend(cardElement);
-    // queryselector можно заменить на body
+    createCard(item, container);
 });
 
 

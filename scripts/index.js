@@ -16,6 +16,7 @@ const jobInput = document.querySelector('.popup__data_type_job');
 const profilePopup = document.querySelector('#profile-popup');
 
 
+
 // Открытие popup'a с данными пользователя
 function showPopup (popup) {
 
@@ -73,7 +74,7 @@ function popupClickHandler(event) {
     }
 };
 
-
+// слушатели открытия popup'ов
 popup.addEventListener('click', popupClickHandler);
 popupAddPlace.addEventListener('click', popupClickHandler);
 overlayShowImage.addEventListener('click', popupClickHandler);
@@ -82,46 +83,41 @@ overlayShowImage.addEventListener('click', popupClickHandler);
 
 // Слушатель для кнопки 'Добавления карточки'
 addPlaceButton.addEventListener('click', function () {
+    // очистка формы перед открытием
     formAddPlace.reset();
+    // открытие popup'pa
     showPopup(popupAddPlace);
+    // слушатель для кнопки закрытия popup'a
     closeButtonAddPlace.addEventListener('click', closePopup);
 });
 // Слушатель для кнопки 'Закрытие popup'a Добавления места'
 
 // Слушатель формы данных пользователя
 form.addEventListener('submit', submitFormData);
+
 // Слушатель формы добавления карточки
 formAddPlace.addEventListener('submit', submitFormAddPlace);
 
-const cardElement = document.querySelector('.template__initial-cards');
+const template = document.querySelector('.template__initial-cards');
 //Функция создания карточки
-function createCard(name, link) {
-    const element = cardElement.content.cloneNode(true);
+function createCard() {
+    const card = new Card(item, '.template__initial-cards');
+    const cardElement = card.createCard();
 
-    element.querySelector('.photo-grid__image').src = link;
-    element.querySelector('.photo-grid__place').textContent = name;
 
-    element.querySelector('.photo-grid__detete').addEventListener('click', event => {
-        event.target.closest('.photo-grid__card').remove();
-    });
 
-    element.querySelector('.photo-grid__like').addEventListener('click', event => {
-        event.target.classList.toggle('photo-grid__like_active');
-    });
+    //     const templateCardImage = element;
+    // templateCardImage.addEventListener('click', showPopupImage);
 
-        const templateCardImage = element.querySelector('.photo-grid__image');
-    templateCardImage.addEventListener('click', showPopupImage);
 
-     ///возвращается созданная карточка
-    return element;
 }
 
 
 
-function addCard (cardContainer, cardElement) {
-    cardContainer.prepend(cardElement);
+// function addCard (cardContainer, cardElement) {
+//     cardContainer.prepend(cardElement);
 
-}
+// }
 
 
 function submitFormAddPlace (event) {
@@ -132,7 +128,8 @@ function submitFormAddPlace (event) {
     dataPlace.name  = formAddPlace.querySelector('.popup__data_type_name-place').value;
     dataPlace.link = formAddPlace.querySelector('.popup__data_type_pic-link').value;
 
-    addCard(container, createCard(dataPlace.name, dataPlace.link));
+    // addCard(container, createCard(dataPlace.name, dataPlace.link));
+
 
     formAddPlace.reset();
 
@@ -172,6 +169,8 @@ const initialCards = [
 ];
 
 const container = document.querySelector('.photo-grid');
+
+
 const popupShowImage = document.querySelector('#show-image');
 const popupImage = document.querySelector('.popup__image');
 const popupImageTitle = document.querySelector('.popup__description-place');
@@ -181,7 +180,7 @@ const closeBtnShowImage = document.querySelector('#close-show_image');
 
 
 
-function showPopupImage(event) {
+    function showPopupImage(event) {
     showPopup(popupShowImage);
     const openCard = event.target.closest('.photo-grid__card');
 
@@ -195,7 +194,19 @@ function showPopupImage(event) {
 }
 
 
-initialCards.forEach(cardElement => addCard(container, createCard(cardElement.name, cardElement.link)));
+// initialCards.forEach(cardElement => {
+    // addCard(container, createCard(cardElement.name, cardElement.link))
+// });
+
+
+
+initialCards.forEach((item) => {
+    const card = new Card(item, '.template__initial-cards');
+    const cardElement = card.createCard();
+
+    container.prepend(cardElement);
+    // queryselector можно заменить на body
+});
 
 
 

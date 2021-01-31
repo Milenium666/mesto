@@ -1,13 +1,13 @@
-// import showPopupImage from './index.js';
+import {showPopupImage} from './index.js'
 
+export class Card {
 
-// export default 
-class Card {
     constructor(data, cardSelector) {
         this._name = data.name;
         this._link = data.link;
         this._cardSelector = cardSelector;
     }
+
 
     _getTemplate() {
         const cardElement = document

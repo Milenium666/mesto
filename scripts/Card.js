@@ -6,7 +6,12 @@ export class Card {
         this._name = data.name;
         this._link = data.link;
         this._cardSelector = cardSelector;
+        this._cardImage = this._element.querySelector('.photo-grid__image');
+        this.likeButton = this._element.querySelector('.photo-grid__like');
+
     }
+
+    
 
 
     _getTemplate() {
@@ -20,12 +25,13 @@ export class Card {
     }
 
     createCard() {
+        
         this._element = this._getTemplate();
-        this._setEventListener();
+        
 
-        this._element.querySelector('.photo-grid__image').src = this._link;
+        this._cardImage.src = this._link;
         this._element.querySelector('.photo-grid__place').textContent = this._name;
-
+        this._setEventListener();
         return this._element;
     }
 
@@ -34,11 +40,11 @@ export class Card {
             this._removeCard();
         });
 
-        this._element.querySelector('.photo-grid__like').addEventListener('click', () => {
+        this._likeButton.addEventListener('click', () => {
             this._handleBtnLike();
         });
 
-        this._element.querySelector('.photo-grid__image').addEventListener('click', showPopupImage);
+        this._cardImage.addEventListener('click', showPopupImage);
     }
 
     _removeCard() {
@@ -46,7 +52,7 @@ export class Card {
     }
 
     _handleBtnLike() {
-        this._element.querySelector('.photo-grid__like').classList.toggle('photo-grid__like_active');
+        this._likeButton.classList.toggle('photo-grid__like_active');
     }
 
 

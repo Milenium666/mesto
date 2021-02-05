@@ -73,8 +73,8 @@ editButton.addEventListener('click', function() {
 
     nameInput.value = name.textContent;
     jobInput.value = job.textContent;
-    const button = form.querySelector('.popup__button-save');
-    formValidator.setButtonState(button, form.checkValidity());
+
+    formValidator.resetValidation();
 
     showPopup(profilePopup);
 
@@ -99,6 +99,7 @@ overlayShowImage.addEventListener('click', popupClickHandler);
 addPlaceButton.addEventListener('click', function () {
     // очистка формы перед открытием
     formAddPlace.reset();
+    formAddPlaceValidator.resetValidation();
 
     // открытие popup'pa
     showPopup(popupAddPlace);

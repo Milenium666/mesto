@@ -2,8 +2,8 @@ import {showPopupImage} from './index.js'
 
 export class Card {
     constructor(data, cardSelector) {
-        this._name = data.name;
         this._link = data.link;
+        this._name = data.name;
         this._cardSelector = cardSelector;
     }
 
@@ -22,10 +22,11 @@ export class Card {
         this._element = this._getTemplate();
         this._cardImage = this._element.querySelector('.photo-grid__image');
         this._likeButton = this._element.querySelector('.photo-grid__like');
+        this._namePlace = this._element.querySelector('.photo-grid__place');
 
 
         this._cardImage.src = this._link;
-        this._element.querySelector('.photo-grid__place').textContent = this._name;
+        this._namePlace.textContent = this._name;
         this._setEventListener();
         return this._element;
     }

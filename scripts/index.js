@@ -2,7 +2,7 @@ import {validationConfig, FormValidator} from './FormValidator.js'
 import {Card} from './Card.js';
 
 
-const popup = document.querySelector('.popup');
+
 const popupCloseButton = document.querySelector('.popup__close');
 const closeButtonAddPlace = document.querySelector('#close-add_place');
 const editButton = document.querySelector('.info__button-pen');
@@ -22,12 +22,21 @@ const profilePopup = document.querySelector('#profile-popup');
 
 const formValidator = new FormValidator(validationConfig, form);
 const formAddPlaceValidator = new FormValidator(validationConfig,formAddPlace);
+const container = document.querySelector('.photo-grid');
 
-function createCards(item, placeholder) {
-    let card = new Card(item, '.template__initial-cards');
+
+
+function addCard(container, cardElement) {
+    container.prepend(cardElement);
+}
+
+function createCards(item) {
+    const card = new Card(item, '.template__initial-cards');
     const cardElement = card.createCard();
+    return cardElement;
+    
 
-    placeholder.prepend(cardElement);
+
 }
 
 
@@ -89,10 +98,10 @@ function popupClickHandler(event) {
 };
 
 // слушатели открытия popup'ов
-popup.addEventListener('click', popupClickHandler);
+profilePopup.addEventListener('click', popupClickHandler);
 popupAddPlace.addEventListener('click', popupClickHandler);
 overlayShowImage.addEventListener('click', popupClickHandler);
-
+closeButtonAddPlace.addEventListener('click', closePopup);
 
 
 // Слушатель для кнопки 'Добавления карточки'
@@ -104,7 +113,7 @@ addPlaceButton.addEventListener('click', function () {
     // открытие popup'pa
     showPopup(popupAddPlace);
     // слушатель для кнопки закрытия popup'a
-    closeButtonAddPlace.addEventListener('click', closePopup);
+    
 });
 // Слушатель для кнопки 'Закрытие popup'a Добавления места'
 
@@ -122,7 +131,7 @@ function submitFormAddPlace (event) {
     dataPlace.name  = formAddPlace.querySelector('.popup__data_type_name-place').value;
     dataPlace.link = formAddPlace.querySelector('.popup__data_type_pic-link').value;
 
-    createCards(dataPlace, container);
+    addCard(container, createCards(dataPlace));
 
 
     formAddPlace.reset();
@@ -162,7 +171,6 @@ const initialCards = [
     }
 ];
 
-const container = document.querySelector('.photo-grid');
 
 
 const popupShowImage = document.querySelector('#show-image');
@@ -171,6 +179,7 @@ const popupImageTitle = document.querySelector('.popup__description-place');
 
 
 const closeBtnShowImage = document.querySelector('#close-show_image');
+closeBtnShowImage.addEventListener('click', closePopup);
 
 
 
@@ -183,13 +192,13 @@ const closeBtnShowImage = document.querySelector('#close-show_image');
 
     popupImage.src = cardImage.src;
     popupImageTitle.textContent = cardTitle.textContent;
-    closeBtnShowImage.addEventListener('click', closePopup);
+    
 
 }
 
 
 initialCards.forEach((item) => {
-    createCards (item, container);
+    addCard(container, createCards(item));
 });
 
 

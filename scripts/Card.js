@@ -1,18 +1,11 @@
 import {showPopupImage} from './index.js'
 
 export class Card {
-
     constructor(data, cardSelector) {
         this._name = data.name;
         this._link = data.link;
         this._cardSelector = cardSelector;
-        this._cardImage = this._element.querySelector('.photo-grid__image');
-        this.likeButton = this._element.querySelector('.photo-grid__like');
-
     }
-
-    
-
 
     _getTemplate() {
         const cardElement = document
@@ -25,9 +18,11 @@ export class Card {
     }
 
     createCard() {
-        
+
         this._element = this._getTemplate();
-        
+        this._cardImage = this._element.querySelector('.photo-grid__image');
+        this._likeButton = this._element.querySelector('.photo-grid__like');
+
 
         this._cardImage.src = this._link;
         this._element.querySelector('.photo-grid__place').textContent = this._name;

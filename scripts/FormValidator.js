@@ -43,6 +43,8 @@ export class FormValidator {
         }
     }
 
+
+
     setButtonState(button, isActive) {
         if(isActive) {
             button.classList.remove(this._buttonInvalidClass);

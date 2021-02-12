@@ -1,5 +1,5 @@
-import {validationConfig, FormValidator} from './FormValidator.js'
-import {Card} from './Card.js';
+import {validationConfig, FormValidator} from '../components/FormValidator.js'
+import {Card} from '../components/Card.js';
 
 
 

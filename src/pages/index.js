@@ -2,7 +2,7 @@ import {validationConfig, FormValidator} from '../components/FormValidator.js'
 import {Card} from '../components/Card.js';
 
 
-
+// константы
 const popupCloseButton = document.querySelector('.popup__close');
 const closeButtonAddPlace = document.querySelector('#close-add_place');
 const editButton = document.querySelector('.info__button-pen');
@@ -11,18 +11,18 @@ const popupAddPlace = document.querySelector("#add-place");
 const name = document.querySelector('.info__user-name');
 const job = document.querySelector('.profile-info__occupation');
 const form = document.querySelector('.popup__data-container');
-
 const overlayShowImage = document.querySelector('#show-image');
 const formAddPlace = document.querySelector('#preservation_place');
-
 const nameInput = document.querySelector('.popup__data_type_name');
 const jobInput = document.querySelector('.popup__data_type_job');
-
 const profilePopup = document.querySelector('#profile-popup');
+const container = document.querySelector('.photo-grid');
 
+
+// создание экземпляров класса formValidation
 const formValidator = new FormValidator(validationConfig, form);
 const formAddPlaceValidator = new FormValidator(validationConfig,formAddPlace);
-const container = document.querySelector('.photo-grid');
+
 
 
 
@@ -34,8 +34,6 @@ function createCards(item) {
     const card = new Card(item, '.template__initial-cards');
     const cardElement = card.createCard();
     return cardElement;
-    
-
 
 }
 
@@ -90,7 +88,7 @@ editButton.addEventListener('click', function() {
 });
 // Слушатель для кнопки 'Закрытие popup'a редактирования профиля'
 popupCloseButton.addEventListener('click', closePopup);
-
+// Функция закрытия по оверлею
 function popupClickHandler(event) {
     if (event.target.classList.contains('popup_opened')) {
         closePopup(event);
@@ -174,8 +172,8 @@ const initialCards = [
 
 
 const popupShowImage = document.querySelector('#show-image');
-const popupImage = document.querySelector('.popup__image');
-const popupImageTitle = document.querySelector('.popup__description-place');
+export const popupImage = document.querySelector('.popup__image');
+export const popupImageTitle = document.querySelector('.popup__description-place');
 
 
 const closeBtnShowImage = document.querySelector('#close-show_image');

@@ -88,6 +88,8 @@ editButton.addEventListener('click', function() {
 });
 // Слушатель для кнопки 'Закрытие popup'a редактирования профиля'
 popupCloseButton.addEventListener('click', closePopup);
+
+
 // Функция закрытия по оверлею
 function popupClickHandler(event) {
     if (event.target.classList.contains('popup_opened')) {

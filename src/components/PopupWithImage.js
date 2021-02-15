@@ -1,4 +1,4 @@
-import { Popup } from "./Popup";
+import { Popup } from "./Popup.js";
 
 import {popupImage, popupImageTitle} from '../pages/index.js';
 
@@ -8,6 +8,7 @@ export class PopupWithImage extends Popup {
     }
 
     open(event) {
+        super.open();
         const openCard = event.target.closest('.photo-grid__card');
 
         const cardImage = openCard.querySelector('.photo-grid__image');

@@ -1,10 +1,11 @@
-import {showPopupImage} from '../pages/index.js'
+
 
 export class Card {
-    constructor(data, cardSelector) {
+    constructor(data, cardSelector, handleCardClick) {
         this._link = data.link;
         this._name = data.name;
         this._cardSelector = cardSelector;
+        this._handleCardClick = handleCardClick.bind(this);
     }
 
     _getTemplate() {
@@ -26,6 +27,7 @@ export class Card {
 
 
         this._cardImage.src = this._link;
+        this._cardImage.alt = this._name;
         this._namePlace.textContent = this._name;
         this._setEventListener();
         return this._element;
@@ -40,7 +42,7 @@ export class Card {
             this._handleBtnLike();
         });
 
-        this._cardImage.addEventListener('click', showPopupImage);
+        this._cardImage.addEventListener('click', this._handleCardClick);
     }
 
     _removeCard() {

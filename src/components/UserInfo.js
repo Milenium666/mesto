@@ -1,7 +1,7 @@
 import {nameInput, jobInput} from '../constants/constants.js'
 
 export class UserInfo {
-    constructor({userNameSelector, userDescriptionSelector}) {
+    constructor(userNameSelector, userDescriptionSelector) {
         this._name = userNameSelector;
         this._job = userDescriptionSelector;
     }

@@ -40,14 +40,15 @@ export const jobInput = document.querySelector('.popup__data_type_job');
 export const addPlaceButton = document.querySelector('.profile__button-plus');
 export const editButton = document.querySelector('.info__button-pen');
 export const closeButtonAddPlace = document.querySelector('#close-add_place');
+export const name = document.querySelector('.info__user-name');
+export const job = document.querySelector('.profile-info__occupation');
 
-const popupCloseButton = document.querySelector('.popup__close');
+
 
 
 
 const popupAddPlace = document.querySelector("#add-place");
-const name = document.querySelector('.info__user-name');
-const job = document.querySelector('.profile-info__occupation');
+
 
 const overlayShowImage = document.querySelector('#show-image');
 

@@ -30,7 +30,9 @@ import {
     nameInput,
     jobInput,
     editButton,
-    closeButtonAddPlace
+    closeButtonAddPlace,
+    name,
+    job
 } from '../constants/constants.js'
 
 const section = new Section({
@@ -55,10 +57,7 @@ const editForm = new PopupWithForm(editSelector, () => {
     userInfo.getUserInfo();
 })
 
-const userInfo = new UserInfo({
-    nameInput,
-    jobInput
-});
+const userInfo = new UserInfo(name,job);
 
 addPlaceButton.addEventListener('click', () => {
     placeForm.setEventListeners();
@@ -70,8 +69,8 @@ addPlaceButton.addEventListener('click', () => {
 
 editButton.addEventListener('click', () => {
     editForm.setEventListeners();
+    userInfo.getUserInfo();
     formValidator.resetValidation();
-    // userInfo.setUserInfo();
     editForm.open();
 })
 

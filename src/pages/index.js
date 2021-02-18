@@ -21,18 +21,16 @@ import {
     initialCards,
     container,
     template,
-    popupShowImage,
     form,
     formPlace,
     placeSelector,
     addPlaceButton,
     editSelector,
-    nameInput,
-    jobInput,
     editButton,
-    closeButtonAddPlace,
     name,
-    job
+    job,
+    jobInput,
+    nameInput
 } from '../constants/constants.js'
 
 const section = new Section({
@@ -53,11 +51,33 @@ section.renderItems();
 const placeForm = new PopupWithForm(placeSelector, () => {
 
 })
-const editForm = new PopupWithForm(editSelector, () => {
-    userInfo.getUserInfo();
+
+// const placeForm = new PopupWithForm(placeSelector,  (data) => {
+//     const item = {
+//         name: data.name-place,
+//         link: data.pic-link
+//                 };
+
+//     const cardElement = new Card(item, template, () =>{
+//         const popupWithImage = new PopupWithImage('#show-image');
+//         popupWithImage.setEventListeners();
+//         popupWithImage.open();
+//     }).createCard(item);
+
+//     container.prepend(cardElement)
+
+// })
+
+const editForm = new PopupWithForm(editSelector, {
+    formSubmitCallBack: (data) => {
+        userInfo.setUserInfo(data)
+        editForm.close()
+    }
 })
 
-const userInfo = new UserInfo(name,job);
+editForm.setEventListeners()
+
+const userInfo = new UserInfo(name, job);
 
 addPlaceButton.addEventListener('click', () => {
     placeForm.setEventListeners();
@@ -74,23 +94,14 @@ editButton.addEventListener('click', () => {
     editForm.open();
 })
 
+const formValidator = new FormValidator(validationConfig, form);
+const formAddPlaceValidator = new FormValidator(validationConfig, formPlace);
 
-// const placeForm = new PopupWithForm(placeSelector, {
-//     formSubmit = (data) => {
-//     const item = {
-//         name: data.name-place,
-//         link: data.pic-link
-//                 };
+formValidator.enableValidation();
+formAddPlaceValidator.enableValidation();
 
-//     const cardElement = new Card(item, template, () =>{
-//         const popupWithImage = new PopupWithImage('#show-image');
-//         popupWithImage.setEventListeners();
-//         popupWithImage.open();
-//     }).createCard(item);
 
-//     container.prepend(cardElement)
-// }
-// })
+
 
 // const placeForm = new PopupWithForm(placeSelector, {
 //     formSubmit = (data) => {
@@ -99,32 +110,10 @@ editButton.addEventListener('click', () => {
 //             link: data.pic-link}}}
 //             )
 
-
-
-
-
-
-// // создание экземпляров класса formValidation
-const formValidator = new FormValidator(validationConfig, form);
-const formAddPlaceValidator = new FormValidator(validationConfig, formPlace);
-
-formValidator.enableValidation();
-formAddPlaceValidator.enableValidation();
-
-
 // function addCard(container, cardElement) {
 //     container.prepend(cardElement);
 // }
 
-
-
-
-
-
-
-
-
-// // Отправка формы с данными потзователя
 // function submitFormData (event) {
 //     event.preventDefault();
 
@@ -134,43 +123,6 @@ formAddPlaceValidator.enableValidation();
 //     closePopup(event);
 // }
 
-
-
-// // Слушатель для кнопки 'редактировать профиль'
-// editButton.addEventListener('click', function() {
-
-//     nameInput.value = name.textContent;
-//     jobInput.value = job.textContent;
-
-//     formValidator.resetValidation();
-
-//     showPopup(profilePopup);
-
-// });
-
-
-
-
-
-
-
-
-
-
-
-// addPlaceButton.addEventListener('click', function () {
-//     // очистка формы перед открытием
-//     formAddPlace.reset();
-//     formAddPlaceValidator.resetValidation();
-
-//     // открытие popup'pa
-//     showPopup(popupAddPlace);
-//     // слушатель для кнопки закрытия popup'a
-
-// });
-// // Слушатель для кнопки 'Закрытие popup'a Добавления места'
-
-// // Слушатель формы данных пользователя
 // form.addEventListener('submit', submitFormData);
 
 // // Слушатель формы добавления карточки
@@ -196,30 +148,16 @@ formAddPlaceValidator.enableValidation();
 
 
 
-// //Добавление на страницу карточек
 
 
 
 
 
-// closeBtnShowImage.addEventListener('click', closePopup);
 
 
 
-//     export function showPopupImage(event) {
-//     showPopup(popupShowImage);
-//     const openCard = event.target.closest('.photo-grid__card');
-
-//     const cardImage = openCard.querySelector('.photo-grid__image');
-//     const cardTitle = openCard.querySelector('.photo-grid__discription');
-
-//     popupImage.src = cardImage.src;
-//     popupImageTitle.textContent = cardTitle.textContent;
 
 
-// }
 
 
-// initialCards.forEach((item) => {
-//     addCard(container, createCards(item));
-// });
+

@@ -19,20 +19,20 @@ export class Popup {
     }
 
     _handleEscClose(event) {
-        if(event.key === 'Escape') {
+        if (event.key === 'Escape') {
             this.close();
         }
     }
 
     _popupClickHandler(event) {
-        if(event.target.classList.contains('popup_opened')) {
+        if (event.target.classList.contains('popup_opened')) {
             this.close();
         }
     }
 
-    setEventListeners() {
-        this._popupSelector.addEventListener('click', this.close);
-    }
+    // setEventListeners() {
+    //     this._popupSelector.addEventListener('click', this.close);
+    // }
 
 
 }

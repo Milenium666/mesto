@@ -36,7 +36,7 @@ export class FormValidator {
 
     _checkInputValidity(input) {
 
-        if(!input.validity.valid) {
+        if (!input.validity.valid) {
             this._showError(input);
         } else {
             this._hideError(input);
@@ -46,7 +46,7 @@ export class FormValidator {
 
 
     _setButtonState(button, isActive) {
-        if(isActive) {
+        if (isActive) {
             button.classList.remove(this._buttonInvalidClass);
             button.disabled = false;
         } else {

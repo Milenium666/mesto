@@ -1,17 +1,35 @@
-import {validationConfig, FormValidator} from '../components/FormValidator.js'
-import {Card} from '../components/Card.js';
-import {PopupWithImage} from '../components/PopupWithImage.js';
-import {PopupWithForm} from '../components/PopupWithForm.js'
-import {UserInfo} from '../components/UserInfo.js'
-import {Section} from '../components/Section.js'
-import {initialCards,
-        container,
-        template,
-        popupShowImage,
-        form,
-        formPlace,
-        placeSelector,
-        addPlaceButton,
+import {
+    validationConfig,
+    FormValidator
+} from '../components/FormValidator.js'
+import {
+    Card
+} from '../components/Card.js';
+import {
+    PopupWithImage
+} from '../components/PopupWithImage.js';
+import {
+    PopupWithForm
+} from '../components/PopupWithForm.js'
+import {
+    UserInfo
+} from '../components/UserInfo.js'
+import {
+    Section
+} from '../components/Section.js'
+import {
+    initialCards,
+    container,
+    template,
+    popupShowImage,
+    form,
+    formPlace,
+    placeSelector,
+    addPlaceButton,
+    editSelector,
+    nameInput,
+    jobInput,
+    editButton,
 } from '../constants/constants.js'
 
 const section = new Section({
@@ -24,15 +42,38 @@ const section = new Section({
         });
         const cardElement = card.createCard(item);
         section.addItem(cardElement);
-    }}, container);
+    }
+}, container);
 
 section.renderItems();
 
-// addPlaceButton.addEventListener('click', () => {
-//     placeForm.open();
-//     placeForm.setEventListeners()
+const placeForm = new PopupWithForm(placeSelector, () => {
 
-// })
+})
+const editForm = new PopupWithForm(editSelector, () => {
+    userInfo.getUserInfo();
+})
+
+const userInfo = new UserInfo({
+    nameInput,
+    jobInput
+});
+
+addPlaceButton.addEventListener('click', () => {
+    // placeForm.setEventListeners();
+    formAddPlaceValidator.resetValidation();
+    placeForm.open();
+
+
+})
+
+editButton.addEventListener('click', () => {
+    // editForm.setEventListeners();
+    formValidator.resetValidation();
+    // userInfo.setUserInfo();
+    editForm.open();
+})
+
 
 // const placeForm = new PopupWithForm(placeSelector, {
 //     formSubmit = (data) => {
@@ -64,11 +105,11 @@ section.renderItems();
 
 
 // // создание экземпляров класса formValidation
-// const formValidator = new FormValidator(validationConfig, form);
-// const formAddPlaceValidator = new FormValidator(validationConfig,formPlace);
+const formValidator = new FormValidator(validationConfig, form);
+const formAddPlaceValidator = new FormValidator(validationConfig, formPlace);
 
-// formValidator.enableValidation();
-// formAddPlaceValidator.enableValidation();
+formValidator.enableValidation();
+formAddPlaceValidator.enableValidation();
 
 
 // function addCard(container, cardElement) {
@@ -78,30 +119,10 @@ section.renderItems();
 
 
 
-// // Открытие popup'a с данными пользователя
-// function showPopup (popup) {
-
-//     popup.classList.add('popup_opened');
-//     document.addEventListener('keydown', closePopupEcs);
-
-
-// }
-
-
-// // закрытие Popup'a
-// function closePopup () {
-//     const popup = document.querySelector('.popup_opened');
-//     popup.classList.remove('popup_opened');
-//     document.removeEventListener('keydown', closePopupEcs);
 
 
 
-// }
-// function closePopupEcs (event) {
-//     if (event.key === 'Escape') {
-//         closePopup(event);
-//     }
-// }
+
 
 // // Отправка формы с данными потзователя
 // function submitFormData (event) {
@@ -126,25 +147,17 @@ section.renderItems();
 //     showPopup(profilePopup);
 
 // });
-// // Слушатель для кнопки 'Закрытие popup'a редактирования профиля'
-// popupCloseButton.addEventListener('click', closePopup);
 
 
-// // Функция закрытия по оверлею
-// function popupClickHandler(event) {
-//     if (event.target.classList.contains('popup_opened')) {
-//         closePopup(event);
-//     }
-// };
-
-// // слушатели открытия popup'ов
-// profilePopup.addEventListener('click', popupClickHandler);
-// popupAddPlace.addEventListener('click', popupClickHandler);
-// overlayShowImage.addEventListener('click', popupClickHandler);
-// closeButtonAddPlace.addEventListener('click', closePopup);
 
 
-// // Слушатель для кнопки 'Добавления карточки'
+
+
+
+
+
+
+
 // addPlaceButton.addEventListener('click', function () {
 //     // очистка формы перед открытием
 //     formAddPlace.reset();
@@ -153,7 +166,7 @@ section.renderItems();
 //     // открытие popup'pa
 //     showPopup(popupAddPlace);
 //     // слушатель для кнопки закрытия popup'a
-    
+
 // });
 // // Слушатель для кнопки 'Закрытие popup'a Добавления места'
 
@@ -202,7 +215,7 @@ section.renderItems();
 
 //     popupImage.src = cardImage.src;
 //     popupImageTitle.textContent = cardTitle.textContent;
-    
+
 
 // }
 
@@ -210,6 +223,3 @@ section.renderItems();
 // initialCards.forEach((item) => {
 //     addCard(container, createCards(item));
 // });
-
-
-

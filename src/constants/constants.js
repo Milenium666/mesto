@@ -25,34 +25,17 @@ export const initialCards = [
     }
 ];
 
+export const container = '.photo-grid';
 export const template = '.template__initial-cards';
 export const placeSelector = '#add-place';
-export const container = '.photo-grid';
-export const editSelector = '#profile-popup';
-export const popupImage = document.querySelector('.popup__image');
-export const popupImageTitle = document.querySelector('.popup__description-place');
-
-export const popupShowImage = document.querySelector('#show-image');
 export const form = document.querySelector('.popup__data-container');
 export const formPlace = document.querySelector('#preservation_place');
-export const nameInput = document.querySelector('.popup__data_type_name');
-export const jobInput = document.querySelector('.popup__data_type_job');
 export const addPlaceButton = document.querySelector('.profile__button-plus');
+export const editSelector = '#profile-popup';
 export const editButton = document.querySelector('.info__button-pen');
-export const closeButtonAddPlace = document.querySelector('#close-add_place');
 export const name = document.querySelector('.info__user-name');
 export const job = document.querySelector('.profile-info__occupation');
-
-
-
-
-
-const popupAddPlace = document.querySelector("#add-place");
-
-
-const overlayShowImage = document.querySelector('#show-image');
-
-
-const profilePopup = document.querySelector('#profile-popup');
-
-const closeBtnShowImage = document.querySelector('#close-show_image');
+export const popupImage = document.querySelector('.popup__image');
+export const popupImageTitle = document.querySelector('.popup__description-place');
+export const nameInput = document.querySelector('.popup__data_type_name');
+export const jobInput = document.querySelector('.popup__data_type_job');

@@ -29,9 +29,22 @@ import {
     editButton,
     name,
     job,
-    jobInput,
-    nameInput
 } from '../constants/constants.js'
+
+
+const placeForm = new PopupWithForm(placeSelector, {
+    formSubmitCallBack: (item) => {
+        const card = new Card(item, template, () => {
+            const image = new PopupWithImage('#show-image');
+            image.setEventListeners();
+            image.open(cardElement);
+        });
+
+        const cardElement = card.createCard(item);
+        section.addItem(cardElement);
+        placeForm.close()
+    }
+})
 
 const section = new Section({
     items: initialCards,
@@ -41,6 +54,7 @@ const section = new Section({
             image.setEventListeners();
             image.open(cardElement);
         });
+
         const cardElement = card.createCard(item);
         section.addItem(cardElement);
     }
@@ -48,25 +62,6 @@ const section = new Section({
 
 section.renderItems();
 
-const placeForm = new PopupWithForm(placeSelector, () => {
-
-})
-
-// const placeForm = new PopupWithForm(placeSelector,  (data) => {
-//     const item = {
-//         name: data.name-place,
-//         link: data.pic-link
-//                 };
-
-//     const cardElement = new Card(item, template, () =>{
-//         const popupWithImage = new PopupWithImage('#show-image');
-//         popupWithImage.setEventListeners();
-//         popupWithImage.open();
-//     }).createCard(item);
-
-//     container.prepend(cardElement)
-
-// })
 
 const editForm = new PopupWithForm(editSelector, {
     formSubmitCallBack: (data) => {
@@ -99,65 +94,3 @@ const formAddPlaceValidator = new FormValidator(validationConfig, formPlace);
 
 formValidator.enableValidation();
 formAddPlaceValidator.enableValidation();
-
-
-
-
-// const placeForm = new PopupWithForm(placeSelector, {
-//     formSubmit = (data) => {
-//         const item = {
-//             name: data.name-place,
-//             link: data.pic-link}}}
-//             )
-
-// function addCard(container, cardElement) {
-//     container.prepend(cardElement);
-// }
-
-// function submitFormData (event) {
-//     event.preventDefault();
-
-//     name.textContent = nameInput.value;
-//     job.textContent = jobInput.value;
-
-//     closePopup(event);
-// }
-
-// form.addEventListener('submit', submitFormData);
-
-// // Слушатель формы добавления карточки
-// formAddPlace.addEventListener('submit', submitFormAddPlace);
-
-// export function submitFormAddPlace (event) {
-//     event.preventDefault();
-
-//     const dataPlace = {};
-
-//     dataPlace.name  = formAddPlace.querySelector('.popup__data_type_name-place').value;
-//     dataPlace.link = formAddPlace.querySelector('.popup__data_type_pic-link').value;
-
-//     addCard(container, createCards(dataPlace));
-
-
-//     formAddPlace.reset();
-
-//     closePopup(event);
-
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

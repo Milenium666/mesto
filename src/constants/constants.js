@@ -39,9 +39,10 @@ export const nameInput = document.querySelector('.popup__data_type_name');
 export const jobInput = document.querySelector('.popup__data_type_job');
 export const addPlaceButton = document.querySelector('.profile__button-plus');
 export const editButton = document.querySelector('.info__button-pen');
+export const closeButtonAddPlace = document.querySelector('#close-add_place');
 
 const popupCloseButton = document.querySelector('.popup__close');
-const closeButtonAddPlace = document.querySelector('#close-add_place');
+
 
 
 const popupAddPlace = document.querySelector("#add-place");

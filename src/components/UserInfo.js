@@ -7,12 +7,12 @@ export class UserInfo {
     }
 
     getUserInfo() {
-        this._name.textContent = nameInput.value;
-        this._job.textContent = jobInput.value;
+        nameInput.value = this._name.textContent;
+        jobInput.value = this._job.textContent;
     }
 
     setUserInfo() {
-        nameInput.value = this._name.textContent;
-        jobInput.value = this._job.textContent;
+        this._name.textContent = nameInput.value;
+        this._job.textContent = jobInput.value;
     }
 }

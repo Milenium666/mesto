@@ -30,6 +30,7 @@ import {
     nameInput,
     jobInput,
     editButton,
+    closeButtonAddPlace
 } from '../constants/constants.js'
 
 const section = new Section({
@@ -60,7 +61,7 @@ const userInfo = new UserInfo({
 });
 
 addPlaceButton.addEventListener('click', () => {
-    // placeForm.setEventListeners();
+    placeForm.setEventListeners();
     formAddPlaceValidator.resetValidation();
     placeForm.open();
 
@@ -68,7 +69,7 @@ addPlaceButton.addEventListener('click', () => {
 })
 
 editButton.addEventListener('click', () => {
-    // editForm.setEventListeners();
+    editForm.setEventListeners();
     formValidator.resetValidation();
     // userInfo.setUserInfo();
     editForm.open();

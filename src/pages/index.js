@@ -1,22 +1,22 @@
 import {
     validationConfig,
     FormValidator
-} from './FormValidator.js'
+} from '../components/FormValidator.js'
 import {
     Card
-} from './Card.js';
+} from '../components/Card.js';
 import {
     PopupWithImage
-} from './PopupWithImage.js';
+} from '../components/PopupWithImage.js';
 import {
     PopupWithForm
-} from './PopupWithForm.js'
+} from '../components/PopupWithForm.js'
 import {
     UserInfo
-} from './UserInfo.js'
+} from '../components/UserInfo.js'
 import {
     Section
-} from './Section.js'
+} from '../components/Section.js'
 import {
     initialCards,
     container,
@@ -29,8 +29,8 @@ import {
     editButton,
     name,
     job,
-} from './constants/constants.js'
-import './pages/index.css';
+} from '../constants/constants.js'
+import './index.css';
 
 const placeForm = new PopupWithForm(placeSelector, {
     formSubmitCallBack: (item) => {

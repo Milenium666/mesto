@@ -1,22 +1,22 @@
 import {
     validationConfig,
     FormValidator
-} from '../components/FormValidator.js'
+} from './FormValidator.js'
 import {
     Card
-} from '../components/Card.js';
+} from './Card.js';
 import {
     PopupWithImage
-} from '../components/PopupWithImage.js';
+} from './PopupWithImage.js';
 import {
     PopupWithForm
-} from '../components/PopupWithForm.js'
+} from './PopupWithForm.js'
 import {
     UserInfo
-} from '../components/UserInfo.js'
+} from './UserInfo.js'
 import {
     Section
-} from '../components/Section.js'
+} from './Section.js'
 import {
     initialCards,
     container,
@@ -29,7 +29,7 @@ import {
     editButton,
     name,
     job,
-} from '../constants/constants.js'
+} from './constants/constants.js'
 
 
 const placeForm = new PopupWithForm(placeSelector, {
@@ -94,3 +94,8 @@ const formAddPlaceValidator = new FormValidator(validationConfig, formPlace);
 
 formValidator.enableValidation();
 formAddPlaceValidator.enableValidation();
+
+
+
+
+

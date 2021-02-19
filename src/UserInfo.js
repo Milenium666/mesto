@@ -1,4 +1,4 @@
-import {nameInput, jobInput} from '../constants/constants.js'
+import {nameInput, jobInput} from './constants/constants.js'
 
 export class UserInfo {
     constructor(userNameSelector, userDescriptionSelector) {

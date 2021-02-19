@@ -1,0 +1,34 @@
+{
+  "name": "mesto",
+  "version": "1.0.0",
+  "description": "*В этом проекте я реализую что-то похожее на социальную сеть в которую можно добавлять только фото городов России.На данном этапе проекта можно менять свое имя и род деятельности.*\r *В данной проектной работе я использовала такие технологии как: grid layout,flex,js*\r *Ссылка на проект :*\r https://milenium666.github.io/mesto/index.html",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+  "dev": "webpack serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Milenium666/mesto.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Milenium666/mesto/issues"
+  },
+  "homepage": "https://github.com/Milenium666/mesto#readme",
+  "devDependencies": {
+    "@babel/core": "^7.12.17",
+    "@babel/preset-env": "^7.12.17",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^3.0.0",
+    "html-webpack-plugin": "^5.2.0",
+    "webpack": "^5.23.0",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "core-js": "^3.9.0"
+  }
+}

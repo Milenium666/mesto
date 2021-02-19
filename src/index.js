@@ -30,7 +30,7 @@ import {
     name,
     job,
 } from './constants/constants.js'
-
+import './pages/index.css';
 
 const placeForm = new PopupWithForm(placeSelector, {
     formSubmitCallBack: (item) => {

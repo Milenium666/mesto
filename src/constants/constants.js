@@ -38,7 +38,7 @@ export const editSelector = '#profile-popup';
 export const editButton = document.querySelector('.info__button-pen');
 export const name = document.querySelector('.info__user-name');
 export const job = document.querySelector('.profile-info__occupation');
-export const popupImage = document.querySelector('.popup__image');
-export const popupImageTitle = document.querySelector('.popup__description-place');
+
+
 export const nameInput = document.querySelector('.popup__data_type_name');
 export const jobInput = document.querySelector('.popup__data_type_job');

@@ -1,20 +1,19 @@
 import { Popup } from "./Popup.js";
-import {popupImage, popupImageTitle} from '../constants/constants.js';
+
 
 export class PopupWithImage extends Popup {
     constructor(popupSelector) {
         super(popupSelector);
+        this._popupImage = document.querySelector('.popup__image');
+        this._popupImageTitle = document.querySelector('.popup__description-place');
     }
 
     open(openCard) {
-        console.log(openCard);
-        // const openCard = event.target.closest('.photo-grid__card');
-
         const cardImage = openCard.querySelector('.photo-grid__image');
         const cardTitle = openCard.querySelector('.photo-grid__discription');
 
-        popupImage.src = cardImage.src;
-        popupImageTitle.textContent = cardTitle.textContent;
+        this._popupImage.src = cardImage.src;
+        this._popupImageTitle.textContent = cardTitle.textContent;
         super.open();
     }
 }

@@ -29,6 +29,8 @@ import {
     editButton,
     name,
     job,
+    nameInput,
+    jobInput
 } from '../constants/constants.js'
 import './index.css';
 
@@ -64,8 +66,8 @@ section.renderItems();
 
 
 const editForm = new PopupWithForm(editSelector, {
-    formSubmitCallBack: (data) => {
-        userInfo.setUserInfo(data)
+    formSubmitCallBack: () => {
+        userInfo.setUserInfo(nameInput, jobInput)
         editForm.close()
     }
 })

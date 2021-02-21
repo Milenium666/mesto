@@ -34,16 +34,12 @@ import {
 } from '../constants/constants.js'
 import './index.css';
 
+
+
+
 const placeForm = new PopupWithForm(placeSelector, {
     formSubmitCallBack: (item) => {
-        const card = new Card(item, template, () => {
-            const image = new PopupWithImage('#show-image');
-            image.setEventListeners();
-            image.open(cardElement);
-        });
-
-        const cardElement = card.createCard(item);
-        section.addItem(cardElement);
+        addCard(section, createCards(item));
         placeForm.close()
     }
 })
@@ -51,19 +47,25 @@ const placeForm = new PopupWithForm(placeSelector, {
 const section = new Section({
     items: initialCards,
     renderer: (item) => {
-        const card = new Card(item, template, () => {
-            const image = new PopupWithImage('#show-image');
-            image.setEventListeners();
-            image.open(cardElement);
-        });
-
-        const cardElement = card.createCard(item);
-        section.addItem(cardElement);
+        addCard(section, createCards(item));
     }
 }, container);
 
 section.renderItems();
 
+function addCard(section, cardElement) {
+    section.addItem(cardElement);
+}
+
+function createCards(item) {
+    const card = new Card(item, template, () => {
+        const image = new PopupWithImage('#show-image');
+        image.setEventListeners();
+        image.open(cardElement);
+    });
+    const cardElement = card.createCard(item);
+    return cardElement;
+}
 
 const editForm = new PopupWithForm(editSelector, {
     formSubmitCallBack: () => {
@@ -75,17 +77,15 @@ const editForm = new PopupWithForm(editSelector, {
 editForm.setEventListeners()
 
 const userInfo = new UserInfo(name, job);
-
+placeForm.setEventListeners();
 addPlaceButton.addEventListener('click', () => {
-    placeForm.setEventListeners();
     formAddPlaceValidator.resetValidation();
     placeForm.open();
 
 
 })
-
+editForm.setEventListeners();
 editButton.addEventListener('click', () => {
-    editForm.setEventListeners();
     userInfo.getUserInfo();
     formValidator.resetValidation();
     editForm.open();

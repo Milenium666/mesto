@@ -57,10 +57,11 @@ function addCard(section, cardElement) {
     section.addItem(cardElement);
 }
 
+const image = new PopupWithImage('#show-image');
+        image.setEventListeners();
+
 function createCards(item) {
     const card = new Card(item, template, () => {
-        const image = new PopupWithImage('#show-image');
-        image.setEventListeners();
         image.open(cardElement);
     });
     const cardElement = card.createCard(item);
